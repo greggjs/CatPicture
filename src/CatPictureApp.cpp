@@ -13,6 +13,7 @@
 
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
+#include "cinder/ImageIo.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -24,15 +25,18 @@ class CatPictureApp : public AppBasic {
 	void mouseDown( MouseEvent event );	
 	void update();
 	void draw();
+	gl::Texture myImage;
 
 	/// Brightness ranges from 0 to 1
   private:
 	float brightness_;
+	
 };
 
 void CatPictureApp::setup()
 {
 	brightness_ = 1.0f;
+	
 }
 
 void CatPictureApp::mouseDown( MouseEvent event )
