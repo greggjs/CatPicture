@@ -37,6 +37,7 @@ private:
 	float g;
 	float b;
 	float loop;
+	
 	Vec2i mMouseLoc;
 	
 };
@@ -52,6 +53,7 @@ void CatPictureApp::setup()
 	g = (float)rand()/((float)(RAND_MAX));
 	b = (float)rand()/((float)(RAND_MAX));
 	gl::clear(Color(r, g, b));
+
 }
 
 /// When the user moves the mouse, it gets the new mouse position
