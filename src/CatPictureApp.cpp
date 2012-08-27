@@ -1,6 +1,9 @@
 /**
  * @file CatPictureApp.cpp
- * A simple app to display a cat picture using Cinder
+ * This app randomizes the color of the background when it is
+ * clicked upon. It will draw a circle that increases in size
+ * wherever the mouse currently is, and it will save the circles
+ * on a particular background.
  *
  * @author Jake Gregg
  * @date 2012-08-23
