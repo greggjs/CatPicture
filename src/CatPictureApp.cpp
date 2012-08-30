@@ -18,7 +18,9 @@
 
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
+#include "cinder/gl/Texture.h"
 #include "cinder/ImageIo.h"
+#include "Resources.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -53,7 +55,8 @@ void CatPictureApp::setup()
 	r = (float)rand()/((float)(RAND_MAX));
 	g = (float)rand()/((float)(RAND_MAX));
 	b = (float)rand()/((float)(RAND_MAX));
-	gl::clear(Color(r, g, b));
+	//gl::clear(Color(r, g, b));
+	gl::Texture myTexture(loadImage(loadResource(RES_AC)));
 
 }
 
@@ -74,6 +77,7 @@ void CatPictureApp::mouseDown( MouseEvent event) {
 		g = (float)rand()/((float)(RAND_MAX));
 		b = (float)rand()/((float)(RAND_MAX));
 		gl::clear(Color( r, g, b));
+		
 	}
 }
 
