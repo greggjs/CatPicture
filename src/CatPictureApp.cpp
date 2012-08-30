@@ -15,6 +15,7 @@
  */
 
 /// Include statements
+
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
 #include "cinder/ImageIo.h"
