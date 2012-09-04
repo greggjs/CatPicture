@@ -40,7 +40,7 @@ private:
 	float g;
 	float b;
 	float loop;
-	
+	gl::Texture myTexture;
 	Vec2i mMouseLoc;
 	
 };
@@ -55,8 +55,8 @@ void CatPictureApp::setup()
 	r = (float)rand()/((float)(RAND_MAX));
 	g = (float)rand()/((float)(RAND_MAX));
 	b = (float)rand()/((float)(RAND_MAX));
-	//gl::clear(Color(r, g, b));
-	gl::Texture myTexture(loadImage(loadResource(RES_AC)));
+	///gl::clear(Color(r, g, b));
+	myTexture = (loadImage(loadResource("assassinscreed321.jpg")));
 
 }
 
@@ -104,8 +104,8 @@ void CatPictureApp::update()
 /// current parameters.
 void CatPictureApp::draw()
 {
-	
-	gl::drawSolidCircle(mMouseLoc, x);
+    gl::draw(myTexture, getWindowBounds());
+    ///gl::drawSolidCircle(mMouseLoc, x);
 	
 }
 

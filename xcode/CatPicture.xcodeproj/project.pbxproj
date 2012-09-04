@@ -19,6 +19,7 @@
 		9DB0925415EFE179008815C3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB0925015EFE179008815C3 /* AudioToolbox.framework */; };
 		9DB0925515EFE179008815C3 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB0925115EFE179008815C3 /* AudioUnit.framework */; };
 		9DB0925615EFE179008815C3 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB0925215EFE179008815C3 /* CoreAudio.framework */; };
+		9DC78C7B15F5B63E00F7A0A9 /* assassinscreed321.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DC78C7A15F5B63E00F7A0A9 /* assassinscreed321.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		9DB0925015EFE179008815C3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9DB0925115EFE179008815C3 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		9DB0925215EFE179008815C3 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		9DC78C7A15F5B63E00F7A0A9 /* assassinscreed321.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = assassinscreed321.jpg; path = ../resources/assassinscreed321.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9DC78C7A15F5B63E00F7A0A9 /* assassinscreed321.jpg */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				00CCAF14116A9FEE008396D5 /* CinderApp.icns */,
 			);
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00CCAF15116A9FEE008396D5 /* CinderApp.icns in Resources */,
+				9DC78C7B15F5B63E00F7A0A9 /* assassinscreed321.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
