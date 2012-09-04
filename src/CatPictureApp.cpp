@@ -56,7 +56,7 @@ void CatPictureApp::setup()
 	g = (float)rand()/((float)(RAND_MAX));
 	b = (float)rand()/((float)(RAND_MAX));
 	///gl::clear(Color(r, g, b));
-	myTexture = (loadImage(loadResource("assassinscreed321.jpg")));
+	myTexture = (loadImage(loadResource("12-Assassins-Creed-3.jpeg")));
 
 }
 
