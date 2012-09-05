@@ -30,7 +30,7 @@
 class Particle {
 public:
 	Particle(); /// creates new Particle
-	Particle( ci::Vec2f loc); /// creates new Particle in specified location
+	Particle( ci::Vec2f location_); /// creates new Particle in specified location
     /// update function call for Particle; takes a channel and a mouse location
 	void update(const ci::Channel32f &channel, const ci::Vec2i &mouseLoc);
 	/// draw function. it really just draws the rectangle

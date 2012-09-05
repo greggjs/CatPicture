@@ -12,6 +12,9 @@
  * CC by 3.0 License, which means you are free to use, share,
  * and remix it as long as you give attribution. Commercial uses
  * are allowed.
+ * 
+ * @note This project satisfies the goals A.1 (rectangle), A.2 (circle), 8.1 (blur),
+ * E.2 (transparency), E.5 (animation), and E.6 (interaction)
  */
 
 /// Include statements

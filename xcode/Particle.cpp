@@ -21,7 +21,6 @@
 #include "cinder/gl/gl.h"
 #include "cinder/app/AppBasic.h"
 #include "cinder/Color.h"
-#include "cinder/app/MouseEvent.h"
 
 using namespace ci;
 
@@ -34,9 +33,9 @@ Particle::Particle()
 /// the Direction relative to the cursor is initiallize at 0. The color
 /// will always start out as a shade of red. A random is generated and
 /// the initial distance change is set.
-Particle::Particle( Vec2f loc )
+Particle::Particle( Vec2f location_ )
 {
-	myLocation_	= loc;
+	myLocation_	= location_;
 	myDirection_	= Rand::randVec2f();
     myDirToCursor_ = Vec2i::zero();
 	myRadius_	= 0.0f;
@@ -101,6 +100,15 @@ void Particle::draw()
     Rectf rect_( myLocation_.x, myLocation_.y, myLocation_.x
                + myRadius_, myLocation_.y + myRadius_);
     gl::drawSolidRect(rect_);
+    /** This would work if there were a proper graphic library to
+        plot the pixels. I don't think there is one in cinder without
+        the use of OpenGL...
+    ///for (int i = 0; i < myLocation_.y + myRadius_; i++ ) {
+       /// for (int j = 0; j < myLocation_.x + myRadius_; j++) {
+          ///  putpixel(myLocation_.x+j, myLocation_.y+i);
+        ///}
+    ///}
+    */
 }
 
 /// This method handles the changing the color of the
