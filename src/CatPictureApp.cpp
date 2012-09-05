@@ -23,9 +23,10 @@
 #include "Resources.h"
 #include "Particle.h"
 #include "ParticleController.h"
+#include "cinder/Rand.h"
 
 #define TOTAL_PARTICLES 4800
-#define RESOLUTION 10
+#define RESOLUTION 5
 
 using namespace ci;
 using namespace ci::app;
@@ -38,22 +39,23 @@ class CatPictureApp : public AppBasic {
 	void setup();
 	void mouseMove( MouseEvent event );	
 	void mouseDrag( MouseEvent event );
+    void mouseDown( MouseEvent event );
 	void update();
 	void draw();
     void keyDown(KeyEvent event);
     
-    Channel32f mChannel;
+    Channel32f myChannel_;
     gl::Texture myTexture_;
     
-    ParticleController mParticleController;
+    ParticleController myParticleController_;
     
     bool mDrawParticles_;
     bool mDrawImage_;
     
 private:
 	Surface mySurface_;
-    
-	Vec2i mMouseLoc;
+    float rand_;
+	Vec2i myMouseLoc_;
 };
 
 void CatPictureApp::prepareSettings(Settings *settings) {
@@ -66,12 +68,12 @@ void CatPictureApp::prepareSettings(Settings *settings) {
 /// in generating the background color.
 void CatPictureApp::setup()
 {
-    mChannel = Channel32f(loadImage(loadResource("assassins_creed_3_logo.jpeg")));
-    myTexture_ = mChannel;
+    myChannel_ = Channel32f(loadImage(loadResource("assassins_creed_3_logo.jpeg")));
+    myTexture_ = myChannel_;
     
-    mParticleController = ParticleController(RESOLUTION);
+    myParticleController_ = ParticleController(RESOLUTION);
     
-    mMouseLoc = Vec2i(0, 0);
+    myMouseLoc_ = Vec2i(0, 0);
     
     mDrawParticles_ = true;
     mDrawImage_ = false;
@@ -83,17 +85,24 @@ void CatPictureApp::setup()
 void CatPictureApp::mouseMove( MouseEvent event )
 {
 
-	mMouseLoc = event.getPos();
+	myMouseLoc_ = event.getPos();
 	
 }
 
 /// When the user clicks the left click, it will randomize
-/// the background color.
+/// the background color by calling the mouseDown event in
+/// the Particle class
+void CatPictureApp::mouseDown( MouseEvent event) {
+    rand_ = randFloat(0.0f, 1.0f);
+    
+}
+
 void CatPictureApp::mouseDrag( MouseEvent event) {
 	
     mouseMove(event);
     
 }
+
 
 /// A continuous loop is running in the background the entire
 /// program, and this determines the radius of the drawn circle.
@@ -102,9 +111,9 @@ void CatPictureApp::mouseDrag( MouseEvent event) {
 void CatPictureApp::update()
 {
 	
-    if (! mChannel) return;
+    if (! myChannel_) return;
     
-	mParticleController.update(mChannel, mMouseLoc);
+	myParticleController_.update(myChannel_, myMouseLoc_);
     
 	
 }
@@ -121,10 +130,11 @@ void CatPictureApp::draw()
     }
     if (mDrawParticles_) {
         glDisable(GL_TEXTURE_2D);
-        mParticleController.draw();
+        myParticleController_.draw();
     }
 	
 }
+
 
 void CatPictureApp::keyDown(KeyEvent event) {
     if (event.getChar() == '1'){

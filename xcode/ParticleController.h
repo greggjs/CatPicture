@@ -16,16 +16,16 @@
 class ParticleController {
 public:
 	ParticleController();
-    ParticleController(int res);
-	void update(const ci::Channel32f &channel, const ci::Vec2i &mouseLoc);
+    ParticleController(int myRes_);
+	void update(const ci::Channel32f &channel_, const ci::Vec2i &mouseLoc_);
 	void draw();
-	void addParticles( int xRes, int yRes, int res );
-    void addParticles( int amt );
-	void removeParticles( int amt );
+	void addParticles( int xRes_, int yRes_, int myRes_ );
+    void addParticles( int amt_ );
+	void removeParticles( int amt_ );
 	
-	std::list<Particle>	mParticles;
+	std::list<Particle>	my_Particles_;
     
-    int mXRes, mYRes;
+    int myXRes_, myYRes_;
 };
 
 
