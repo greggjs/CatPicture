@@ -25,7 +25,6 @@
 #include "ParticleController.h"
 #include "cinder/Rand.h"
 
-#define TOTAL_PARTICLES 4800
 #define RESOLUTION 5
 
 using namespace ci;
@@ -40,9 +39,9 @@ class CatPictureApp : public AppBasic {
 	void mouseMove( MouseEvent event );	
 	void mouseDrag( MouseEvent event );
     void mouseDown( MouseEvent event );
+    void mouseWheel( MouseEvent event );
 	void update();
 	void draw();
-    void keyDown(KeyEvent event);
     
     Channel32f myChannel_;
     gl::Texture myTexture_;
@@ -102,6 +101,9 @@ void CatPictureApp::mouseDrag( MouseEvent event) {
     
 }
 
+void CatPictureApp::mouseWheel ( MouseEvent event ) {
+    myParticleController_.changeDist(event.getWheelIncrement());
+}
 
 /// A continuous loop is running in the background the entire
 /// program, and this determines the radius of the drawn circle.
@@ -132,16 +134,6 @@ void CatPictureApp::draw()
         myParticleController_.draw();
     }
 	
-}
-
-
-void CatPictureApp::keyDown(KeyEvent event) {
-    if (event.getChar() == '1'){
-        mDrawImage_ = !mDrawImage_;
-    }
-    else if (event.getChar() == '2'){
-        mDrawParticles_ = !mDrawParticles_;
-    }
 }
 
 CINDER_APP_BASIC( CatPictureApp, RendererGl )

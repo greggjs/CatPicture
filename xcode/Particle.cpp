@@ -35,6 +35,8 @@ Particle::Particle( Vec2f loc )
     isGreen_ = true;
     isBlue_ = true;;
     rand_ = randFloat(0.0f, 1.0f);
+    myDistChange_ = .05f;
+    
 }
 
 void Particle::update( const Channel32f &channel, const Vec2i &mouseLoc)
@@ -43,9 +45,9 @@ void Particle::update( const Channel32f &channel, const Vec2i &mouseLoc)
     
     float dist_To_Cursor_ = myDirToCursor_.length();
     float time_ = app::getElapsedSeconds()*4.0f;
-    float dist_ = dist_To_Cursor_ * 0.05f;
+    float dist_ = dist_To_Cursor_ * myDistChange_;
     float sinOffset_ = sin(dist_-time_)*2.0f;
-    myDirToCursor_ *= sinOffset_*15.0f;
+    myDirToCursor_ *= sinOffset_*15.0;
     
     if (!isRed_) {
         rand_ = randFloat(0.0f, 1.0f);
@@ -87,4 +89,11 @@ void Particle::changeColor() {
         isBlue_ = !isBlue_;
         isRed_ = !isRed_;
     }
+}
+
+void Particle::changeDist(float myIncrement_) {
+    if (myIncrement_ > 0 && myDistChange_ < 0.5f)
+        myDistChange_ += 0.005f;
+    else if (myIncrement_ < 0 && myDistChange_ > .0001f)
+        myDistChange_ -= 0.005f;
 }

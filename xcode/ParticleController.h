@@ -23,6 +23,7 @@ public:
     void addParticles( int amt_ );
 	void removeParticles( int amt_ );
 	void changeColor();
+    void changeDist(float myIncrement_);
     
 	std::list<Particle>	my_Particles_;
     

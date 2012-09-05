@@ -49,6 +49,12 @@ void ParticleController::changeColor() {
 	}
 }
 
+void ParticleController::changeDist(float myIncrement_) {
+    for( list<Particle>::iterator p_ = my_Particles_.begin(); p_ != my_Particles_.end(); ++p_ ){
+		p_->changeDist(myIncrement_);
+	}
+}
+
 void ParticleController::addParticles( int xi_, int yi_, int myRes_ )
 {
     float x = (xi_ + 0.25f)*(float)myRes_;
