@@ -93,8 +93,7 @@ void CatPictureApp::mouseMove( MouseEvent event )
 /// the background color by calling the mouseDown event in
 /// the Particle class
 void CatPictureApp::mouseDown( MouseEvent event) {
-    rand_ = randFloat(0.0f, 1.0f);
-    
+    myParticleController_.changeColor();
 }
 
 void CatPictureApp::mouseDrag( MouseEvent event) {

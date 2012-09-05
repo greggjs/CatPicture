@@ -43,6 +43,12 @@ void ParticleController::draw()
 	}
 }
 
+void ParticleController::changeColor() {
+    for( list<Particle>::iterator p_ = my_Particles_.begin(); p_ != my_Particles_.end(); ++p_ ){
+		p_->changeColor();
+	}
+}
+
 void ParticleController::addParticles( int xi_, int yi_, int myRes_ )
 {
     float x = (xi_ + 0.25f)*(float)myRes_;

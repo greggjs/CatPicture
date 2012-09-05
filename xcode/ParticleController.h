@@ -22,7 +22,8 @@ public:
 	void addParticles( int xRes_, int yRes_, int myRes_ );
     void addParticles( int amt_ );
 	void removeParticles( int amt_ );
-	
+	void changeColor();
+    
 	std::list<Particle>	my_Particles_;
     
     int myXRes_, myYRes_;

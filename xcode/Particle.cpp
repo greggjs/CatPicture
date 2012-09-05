@@ -14,6 +14,7 @@
 #include "cinder/gl/gl.h"
 #include "cinder/app/AppBasic.h"
 #include "cinder/Color.h"
+#include "cinder/app/MouseEvent.h"
 
 using namespace ci;
 
@@ -46,16 +47,15 @@ void Particle::update( const Channel32f &channel, const Vec2i &mouseLoc)
     float sinOffset_ = sin(dist_-time_)*2.0f;
     myDirToCursor_ *= sinOffset_*15.0f;
     
-    
-    if (isRed_) {
+    if (!isRed_) {
         rand_ = randFloat(0.0f, 1.0f);
         myColor_ = Color(rand_, 0.0f, 0.0f);
     }
-    else if (isGreen_) {
+    else if (!isGreen_) {
         rand_ = randFloat(0.0f, 1.0f);
         myColor_ = Color(0.0f, rand_, 0.0f);
     }
-    else if (isBlue_) {
+    else if (!isBlue_) {
         rand_ = randFloat(0.0f, 1.0f);
         myColor_ = Color(0.0f, 0.0f, rand_);
     }
@@ -72,7 +72,6 @@ void Particle::draw()
     Rectf rect_( myLocation_.x, myLocation_.y, myLocation_.x
                + myRadius_, myLocation_.y + myRadius_);
     gl::drawSolidRect(rect_);
-    ///gl::drawSolidCircle(mLoc+mDirToCursor, mRadius);
 }
 
 void Particle::changeColor() {
