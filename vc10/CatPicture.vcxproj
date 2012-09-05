@@ -105,10 +105,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\CatPictureApp.cpp" />
+    <ClCompile Include="..\src\Particle.cpp" />
+    <ClCompile Include="..\src\ParticleController.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\Particle.h" />
+    <ClInclude Include="..\include\ParticleController.h" />
     <ClInclude Include="..\include\Resources.h" />
-    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc" />

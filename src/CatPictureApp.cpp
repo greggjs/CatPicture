@@ -70,7 +70,7 @@ void CatPictureApp::setup()
 {
     /// create a new channel to store the image, and create the texture with the
     /// same image
-    myChannel_ = Channel32f(loadImage(loadResource("assassins_creed_3_logo.jpeg")));
+    myChannel_ = Channel32f(loadImage(loadResource(RES_AC)));
     myTexture_ = myChannel_;
     
     /// Create a new ParticleController with the resolution
