@@ -25,7 +25,7 @@
 #include "ParticleController.h"
 
 #define TOTAL_PARTICLES 4800*8
-#define RESOLUTION 10
+#define RESOLUTION 5
 
 using namespace ci;
 using namespace ci::app;
@@ -34,6 +34,7 @@ using namespace std;
 /// Define public methods and private variables
 class CatPictureApp : public AppBasic {
   public:
+    void prepareSettings(Settings *settings);
 	void setup();
 	void mouseMove( MouseEvent event );	
 	void mouseDown( MouseEvent event );
@@ -59,14 +60,17 @@ private:
 	Vec2i mMouseLoc;
 };
 
-
+void CatPictureApp::prepareSettings(Settings *settings) {
+    settings->setWindowSize(520, 520);
+    settings->setFrameRate(60.0f);
+}
 
 /// Sets the initial loop number to 1, initiallizes the random
 /// number generator, and initiallizes my random numbers for use
 /// in generating the background color.
 void CatPictureApp::setup()
 {
-    mChannel = Channel32f(loadImage(loadResource("12-Assassins-Creed-3.jpeg")));
+    mChannel = Channel32f(loadImage(loadResource("assassins_creed_3_logo.jpeg")));
 	///mySurface_ = loadImage(loadResource("12-Assassins-Creed-3.jpeg"));
     myTexture_ = mChannel;
     

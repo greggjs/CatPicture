@@ -23,6 +23,7 @@
 		9DEB387B15F5B8F80023A301 /* 12-Assassins-Creed-3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB387A15F5B8F80023A301 /* 12-Assassins-Creed-3.jpeg */; };
 		9DEB388015F676350023A301 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB387F15F676350023A301 /* Particle.cpp */; };
 		9DEB388215F676400023A301 /* ParticleController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB388115F676400023A301 /* ParticleController.cpp */; };
+		9DEB388415F70A690023A301 /* assassins_creed_3_logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB388315F70A690023A301 /* assassins_creed_3_logo.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		9DEB387E15F6747C0023A301 /* ParticleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleController.h; sourceTree = "<group>"; };
 		9DEB387F15F676350023A301 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
 		9DEB388115F676400023A301 /* ParticleController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleController.cpp; sourceTree = "<group>"; };
+		9DEB388315F70A690023A301 /* assassins_creed_3_logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = assassins_creed_3_logo.jpeg; path = ../resources/assassins_creed_3_logo.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9DEB388315F70A690023A301 /* assassins_creed_3_logo.jpeg */,
 				9DEB387A15F5B8F80023A301 /* 12-Assassins-Creed-3.jpeg */,
 				9DC78C7A15F5B63E00F7A0A9 /* assassinscreed321.jpg */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -213,6 +216,7 @@
 				00CCAF15116A9FEE008396D5 /* CinderApp.icns in Resources */,
 				9DC78C7B15F5B63E00F7A0A9 /* assassinscreed321.jpg in Resources */,
 				9DEB387B15F5B8F80023A301 /* 12-Assassins-Creed-3.jpeg in Resources */,
+				9DEB388415F70A690023A301 /* assassins_creed_3_logo.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

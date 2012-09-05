@@ -23,10 +23,13 @@ public:
 	void draw();
 	
 	ci::Vec2f	mLoc;
+    ci::Vec2f   mLocPer;
 	ci::Vec2f	mDir;
+    ci::Vec2f   mDirToCursor;
 	float		mVel;
 	
 	float		mRadius;
+    float       Scale;
     ci::Color   mColor;
 };
 
