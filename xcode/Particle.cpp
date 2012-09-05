@@ -71,15 +71,15 @@ void Particle::update( const Channel32f &channel, const Vec2i &mouseLoc)
     /// of the booleans isRed_, isGreen_, and isBlue_.
     
     if (!isRed_) { /// makes it red
-        rand_ = randFloat(0.0f, 1.0f);
+        rand_ = randFloat(0.75f, 1.0f);
         myColor_ = Color(rand_, 0.0f, 0.0f);
     }
     else if (!isGreen_) { /// makes it green
-        rand_ = randFloat(0.0f, 1.0f);
+        rand_ = randFloat(0.75f, 1.0f);
         myColor_ = Color(0.0f, rand_, 0.0f);
     }
     else if (!isBlue_) { /// makes it blue
-        rand_ = randFloat(0.0f, 1.0f);
+        rand_ = randFloat(0.75f, 1.0f);
         myColor_ = Color(0.0f, 0.0f, rand_);
     }
         
