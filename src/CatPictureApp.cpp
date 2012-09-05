@@ -25,6 +25,11 @@
 #include "ParticleController.h"
 #include "cinder/Rand.h"
 
+/// this constant defines the resolution
+/// I am drawing at. That means that each
+/// Particle I draw is 5 pixels by 5 pixels.
+/// Anything smaller really slows down the
+/// frames per second.
 #define RESOLUTION 5
 
 using namespace ci;
@@ -34,26 +39,21 @@ using namespace std;
 /// Define public methods and private variables
 class CatPictureApp : public AppBasic {
   public:
-    void prepareSettings(Settings *settings);
-	void setup();
-	void mouseMove( MouseEvent event );	
-	void mouseDrag( MouseEvent event );
-    void mouseDown( MouseEvent event );
-    void mouseWheel( MouseEvent event );
-	void update();
-	void draw();
+    void prepareSettings(Settings *settings); /// prepare the initial settings
+	void setup(); /// setup the app
+	void mouseMove( MouseEvent event );	/// handle when the mouse moves
+	void mouseDrag( MouseEvent event ); /// handle whne the mouse is dragged
+    void mouseDown( MouseEvent event ); /// handle when the mouse is clicked
+    void mouseWheel( MouseEvent event ); /// handle when the wheel is moved
+	void update(); /// update the settings
+	void draw(); // draw the updated settings
     
-    Channel32f myChannel_;
-    gl::Texture myTexture_;
+    Channel32f myChannel_; /// where I maninpulate my imported image
+    gl::Texture myTexture_; /// where I store my image
     
-    ParticleController myParticleController_;
-    
-    bool mDrawParticles_;
-    bool mDrawImage_;
-    
-private:
-	Surface mySurface_;
-    float rand_;
+    ParticleController myParticleController_; /// where the particles are stored
+
+    /// stores the mouse location
 	Vec2i myMouseLoc_;
 };
 
@@ -62,25 +62,25 @@ void CatPictureApp::prepareSettings(Settings *settings) {
     settings->setFrameRate(60.0f);
 }
 
-/// Sets the initial loop number to 1, initiallizes the random
-/// number generator, and initiallizes my random numbers for use
-/// in generating the background color.
+/// This sets ups the program before everything is drawn
 void CatPictureApp::setup()
 {
+    /// create a new channel to store the image, and create the texture with the
+    /// same image
     myChannel_ = Channel32f(loadImage(loadResource("assassins_creed_3_logo.jpeg")));
     myTexture_ = myChannel_;
     
+    /// Create a new ParticleController with the resolution
+    /// desired
     myParticleController_ = ParticleController(RESOLUTION);
     
+    /// initiallize the mouse location at the origin
     myMouseLoc_ = Vec2i(0, 0);
-    
-    mDrawParticles_ = true;
-    mDrawImage_ = false;
 
 }
 
 /// When the user moves the mouse, it gets the new mouse position
-/// and it draws a new circle there. It will start the loop over.
+/// and stores it
 void CatPictureApp::mouseMove( MouseEvent event )
 {
 
@@ -95,23 +95,29 @@ void CatPictureApp::mouseDown( MouseEvent event) {
     myParticleController_.changeColor();
 }
 
+/// when the mouse is dragged, it calls the same method
+/// as when the mouse is clicked. This was done to
+/// smooth out the movements of the Particles.
 void CatPictureApp::mouseDrag( MouseEvent event) {
 	
     mouseMove(event);
     
 }
 
+/// This handles when the mouseWheel is scrolled.
+/// it sends it first to the ParticleController, then
+/// the ParticleController sends it to each Particle
+/// to handle on their own.
 void CatPictureApp::mouseWheel ( MouseEvent event ) {
     myParticleController_.changeDist(event.getWheelIncrement());
 }
 
-/// A continuous loop is running in the background the entire
-/// program, and this determines the radius of the drawn circle.
-/// if the circle reaches a certain limit, it will stop drawing
-/// that particular circle.
+/// This function is continuously called and changes the properties
+/// of the Particles based on the mouse's location
 void CatPictureApp::update()
 {
-	
+	/// if somehow it's not our channel being called,
+    /// don't proceed with the update
     if (! myChannel_) return;
     
 	myParticleController_.update(myChannel_, myMouseLoc_);
@@ -119,20 +125,13 @@ void CatPictureApp::update()
 	
 }
 
-/// When the draw method is called, it draws a cirlce with the 
-/// current parameters.
+/// This method draws our ParticleController's Particles
+/// after proper updates have been performed.
 void CatPictureApp::draw()
 {
-    gl::clear (Color(0, 0, 0), true);
-    
-    if (mDrawImage_ ){
-        myTexture_.enableAndBind();
-        gl::draw(myTexture_, getWindowBounds());
-    }
-    if (mDrawParticles_) {
-        glDisable(GL_TEXTURE_2D);
-        myParticleController_.draw();
-    }
+
+    myParticleController_.draw();
+
 	
 }
 
