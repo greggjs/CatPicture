@@ -132,7 +132,7 @@ void CatPictureApp::update()
 /// after proper updates have been performed.
 void CatPictureApp::draw()
 {
-
+    gl::clear(Color(0.0f, 0.0f, 0.0f));
     myParticleController_.draw();
 
 	
