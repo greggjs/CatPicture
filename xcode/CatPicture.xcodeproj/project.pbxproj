@@ -15,14 +15,14 @@
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		53E3CDFC0E86099300238D2B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		9D6B07E115F798CD00CA8448 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D6B07DF15F798CD00CA8448 /* Particle.cpp */; };
+		9D6B07E215F798CD00CA8448 /* ParticleController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D6B07E015F798CD00CA8448 /* ParticleController.cpp */; };
 		9DB0925315EFE179008815C3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB0924F15EFE179008815C3 /* Accelerate.framework */; };
 		9DB0925415EFE179008815C3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB0925015EFE179008815C3 /* AudioToolbox.framework */; };
 		9DB0925515EFE179008815C3 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB0925115EFE179008815C3 /* AudioUnit.framework */; };
 		9DB0925615EFE179008815C3 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB0925215EFE179008815C3 /* CoreAudio.framework */; };
 		9DC78C7B15F5B63E00F7A0A9 /* assassinscreed321.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DC78C7A15F5B63E00F7A0A9 /* assassinscreed321.jpg */; };
 		9DEB387B15F5B8F80023A301 /* 12-Assassins-Creed-3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB387A15F5B8F80023A301 /* 12-Assassins-Creed-3.jpeg */; };
-		9DEB388015F676350023A301 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB387F15F676350023A301 /* Particle.cpp */; };
-		9DEB388215F676400023A301 /* ParticleController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB388115F676400023A301 /* ParticleController.cpp */; };
 		9DEB388415F70A690023A301 /* assassins_creed_3_logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB388315F70A690023A301 /* assassins_creed_3_logo.jpeg */; };
 /* End PBXBuildFile section */
 
@@ -41,16 +41,16 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CatPicture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatPicture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1F223215E72A6300E3B32D /* Resources.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = Resources.h; path = ../../../../CatPictureCopy/include/Resources.h; sourceTree = "<group>"; };
+		9D6B07DF15F798CD00CA8448 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Particle.cpp; path = ../src/Particle.cpp; sourceTree = "<group>"; };
+		9D6B07E015F798CD00CA8448 /* ParticleController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleController.cpp; path = ../src/ParticleController.cpp; sourceTree = "<group>"; };
+		9D6B07E315F798E100CA8448 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Particle.h; path = ../include/Particle.h; sourceTree = "<group>"; };
+		9D6B07E415F798E100CA8448 /* ParticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleController.h; path = ../include/ParticleController.h; sourceTree = "<group>"; };
 		9DB0924F15EFE179008815C3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		9DB0925015EFE179008815C3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9DB0925115EFE179008815C3 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		9DB0925215EFE179008815C3 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		9DC78C7A15F5B63E00F7A0A9 /* assassinscreed321.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = assassinscreed321.jpg; path = ../resources/assassinscreed321.jpg; sourceTree = "<group>"; };
 		9DEB387A15F5B8F80023A301 /* 12-Assassins-Creed-3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "12-Assassins-Creed-3.jpeg"; path = "../resources/12-Assassins-Creed-3.jpeg"; sourceTree = "<group>"; };
-		9DEB387D15F6744C0023A301 /* Particle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
-		9DEB387E15F6747C0023A301 /* ParticleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleController.h; sourceTree = "<group>"; };
-		9DEB387F15F676350023A301 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
-		9DEB388115F676400023A301 /* ParticleController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleController.cpp; sourceTree = "<group>"; };
 		9DEB388315F70A690023A301 /* assassins_creed_3_logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = assassins_creed_3_logo.jpeg; path = ../resources/assassins_creed_3_logo.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,9 +78,9 @@
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9D6B07DF15F798CD00CA8448 /* Particle.cpp */,
+				9D6B07E015F798CD00CA8448 /* ParticleController.cpp */,
 				00BAE6590E7ED9C10018A608 /* CatPictureApp.cpp */,
-				9DEB387F15F676350023A301 /* Particle.cpp */,
-				9DEB388115F676400023A301 /* ParticleController.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -135,9 +135,9 @@
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				9D6B07E315F798E100CA8448 /* Particle.h */,
+				9D6B07E415F798E100CA8448 /* ParticleController.h */,
 				9D1F223215E72A6300E3B32D /* Resources.h */,
-				9DEB387D15F6744C0023A301 /* Particle.h */,
-				9DEB387E15F6747C0023A301 /* ParticleController.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -228,8 +228,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				00BAE65A0E7ED9C10018A608 /* CatPictureApp.cpp in Sources */,
-				9DEB388015F676350023A301 /* Particle.cpp in Sources */,
-				9DEB388215F676400023A301 /* ParticleController.cpp in Sources */,
+				9D6B07E115F798CD00CA8448 /* Particle.cpp in Sources */,
+				9D6B07E215F798CD00CA8448 /* ParticleController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
