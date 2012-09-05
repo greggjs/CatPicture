@@ -21,6 +21,8 @@
 		9DB0925615EFE179008815C3 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB0925215EFE179008815C3 /* CoreAudio.framework */; };
 		9DC78C7B15F5B63E00F7A0A9 /* assassinscreed321.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DC78C7A15F5B63E00F7A0A9 /* assassinscreed321.jpg */; };
 		9DEB387B15F5B8F80023A301 /* 12-Assassins-Creed-3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB387A15F5B8F80023A301 /* 12-Assassins-Creed-3.jpeg */; };
+		9DEB388015F676350023A301 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB387F15F676350023A301 /* Particle.cpp */; };
+		9DEB388215F676400023A301 /* ParticleController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB388115F676400023A301 /* ParticleController.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,10 @@
 		9DB0925215EFE179008815C3 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		9DC78C7A15F5B63E00F7A0A9 /* assassinscreed321.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = assassinscreed321.jpg; path = ../resources/assassinscreed321.jpg; sourceTree = "<group>"; };
 		9DEB387A15F5B8F80023A301 /* 12-Assassins-Creed-3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "12-Assassins-Creed-3.jpeg"; path = "../resources/12-Assassins-Creed-3.jpeg"; sourceTree = "<group>"; };
+		9DEB387D15F6744C0023A301 /* Particle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
+		9DEB387E15F6747C0023A301 /* ParticleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleController.h; sourceTree = "<group>"; };
+		9DEB387F15F676350023A301 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
+		9DEB388115F676400023A301 /* ParticleController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleController.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				00BAE6590E7ED9C10018A608 /* CatPictureApp.cpp */,
+				9DEB387F15F676350023A301 /* Particle.cpp */,
+				9DEB388115F676400023A301 /* ParticleController.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -126,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				9D1F223215E72A6300E3B32D /* Resources.h */,
+				9DEB387D15F6744C0023A301 /* Particle.h */,
+				9DEB387E15F6747C0023A301 /* ParticleController.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -214,6 +224,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				00BAE65A0E7ED9C10018A608 /* CatPictureApp.cpp in Sources */,
+				9DEB388015F676350023A301 /* Particle.cpp in Sources */,
+				9DEB388215F676400023A301 /* ParticleController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
