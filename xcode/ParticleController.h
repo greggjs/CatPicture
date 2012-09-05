@@ -17,7 +17,7 @@ class ParticleController {
 public:
 	ParticleController();
     ParticleController(int res);
-	void update(const ci::Channel32f &channel);
+	void update(const ci::Channel32f &channel, const ci::Vec2i &mouseLoc);
 	void draw();
 	void addParticles( int xRes, int yRes, int res );
     void addParticles( int amt );

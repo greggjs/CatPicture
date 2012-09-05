@@ -24,8 +24,8 @@
 #include "Particle.h"
 #include "ParticleController.h"
 
-#define TOTAL_PARTICLES 4800*8
-#define RESOLUTION 5
+#define TOTAL_PARTICLES 4800
+#define RESOLUTION 10
 
 using namespace ci;
 using namespace ci::app;
@@ -37,7 +37,7 @@ class CatPictureApp : public AppBasic {
     void prepareSettings(Settings *settings);
 	void setup();
 	void mouseMove( MouseEvent event );	
-	void mouseDown( MouseEvent event );
+	void mouseDrag( MouseEvent event );
 	void update();
 	void draw();
     void keyDown(KeyEvent event);
@@ -52,11 +52,7 @@ class CatPictureApp : public AppBasic {
     
 private:
 	Surface mySurface_;
-    int x;
-	float r;
-	float g;
-	float b;
-	float loop;
+    
 	Vec2i mMouseLoc;
 };
 
@@ -71,22 +67,14 @@ void CatPictureApp::prepareSettings(Settings *settings) {
 void CatPictureApp::setup()
 {
     mChannel = Channel32f(loadImage(loadResource("assassins_creed_3_logo.jpeg")));
-	///mySurface_ = loadImage(loadResource("12-Assassins-Creed-3.jpeg"));
     myTexture_ = mChannel;
     
     mParticleController = ParticleController(RESOLUTION);
     
+    mMouseLoc = Vec2i(0, 0);
+    
     mDrawParticles_ = true;
     mDrawImage_ = false;
-    
-    /*
-    loop = 1;
-	///srand (time(NULL));
-	r = (float)rand()/((float)(RAND_MAX));
-	g = (float)rand()/((float)(RAND_MAX));
-	b = (float)rand()/((float)(RAND_MAX));
-	///gl::clear(Color(r, g, b));
-	*/
 
 }
 
@@ -94,31 +82,17 @@ void CatPictureApp::setup()
 /// and it draws a new circle there. It will start the loop over.
 void CatPictureApp::mouseMove( MouseEvent event )
 {
-    
-    
-    
-    /**
+
 	mMouseLoc = event.getPos();
-	gl::drawSolidCircle(mMouseLoc, x);
-	loop = 0;
-     */
+	
 }
 
 /// When the user clicks the left click, it will randomize
 /// the background color.
-void CatPictureApp::mouseDown( MouseEvent event) {
+void CatPictureApp::mouseDrag( MouseEvent event) {
 	
-   
+    mouseMove(event);
     
-    /**
-    if (event.isLeft()) {
-		r = (float)rand()/((float)(RAND_MAX));
-		g = (float)rand()/((float)(RAND_MAX));
-		b = (float)rand()/((float)(RAND_MAX));
-		gl::clear(Color( r, g, b));
-		
-	}
-     */
 }
 
 /// A continuous loop is running in the background the entire
@@ -130,7 +104,7 @@ void CatPictureApp::update()
 	
     if (! mChannel) return;
     
-	mParticleController.update(mChannel);
+	mParticleController.update(mChannel, mMouseLoc);
     
 	
 }

@@ -29,10 +29,10 @@ ParticleController::ParticleController(int res) {
     }
 }
 
-void ParticleController::update( const Channel32f &channel)
+void ParticleController::update( const Channel32f &channel, const Vec2i &mouseLoc)
 {
 	for( list<Particle>::iterator p = mParticles.begin(); p != mParticles.end(); ++p ){
-		p->update(channel);
+		p->update(channel, mouseLoc);
 	}
 }
 

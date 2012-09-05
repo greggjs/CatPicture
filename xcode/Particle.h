@@ -19,7 +19,7 @@ class Particle {
 public:
 	Particle();
 	Particle( ci::Vec2f );
-	void update(const ci::Channel32f &channel);
+	void update(const ci::Channel32f &channel, const ci::Vec2i &mouseLoc);
 	void draw();
 	
 	ci::Vec2f	mLoc;
@@ -29,7 +29,8 @@ public:
 	float		mVel;
 	
 	float		mRadius;
-    float       Scale;
+    float       mRadiusScale;
+    float       mScale;
     ci::Color   mColor;
 };
 
