@@ -97,15 +97,3 @@ void ParticleController::addParticles( int amt ) {
     }
 }
 
-/// remove a particle from the list. I had this incase
-/// I ever needed it again to remove old particles.
-/// turns out I didn't need it again
-void ParticleController::removeParticles( int amt )
-{
-	// pop off only the specified amount of particles
-    for( int i=0; i<amt; i++ )
-	{
-		my_Particles_.pop_back();
-	}
-}
-
