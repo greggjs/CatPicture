@@ -39,11 +39,13 @@ Particle::Particle( Vec2f location_ )
 	myDirection_	= Rand::randVec2f();
     myDirToCursor_ = Vec2i::zero();
 	myRadius_	= 0.0f;
-    isRed_ = false;
-    isGreen_ = true;
-    isBlue_ = true;;
     rand_ = randFloat(0.0f, 1.0f);
     myDistChange_ = .05f;
+	redLevel_ = 1.0f;
+	greenLevel_ = 1.0f;
+	blueLevel_ = 1.0f;
+	change_ = 0;
+	myColor_ = Color(redLevel_, greenLevel_, blueLevel_);
     
 }
 
@@ -66,23 +68,7 @@ void Particle::update( const Channel32f &channel, const Vec2i &mouseLoc)
     float sinOffset_ = sin(dist_-time_)*2.0f;
     myDirToCursor_ *= sinOffset_*15.0;
     
-    /// this if ... else if stack determines the
-    /// color of the particle based on the values
-    /// of the booleans isRed_, isGreen_, and isBlue_.
-    
-    if (!isRed_) { /// makes it red
-        rand_ = randFloat(0.75f, 1.0f);
-        myColor_ = Color(rand_, 0.0f, 0.0f);
-    }
-    else if (!isGreen_) { /// makes it green
-        rand_ = randFloat(0.75f, 1.0f);
-        myColor_ = Color(0.0f, rand_, 0.0f);
-    }
-    else if (!isBlue_) { /// makes it blue
-        rand_ = randFloat(0.75f, 1.0f);
-        myColor_ = Color(0.0f, 0.0f, rand_);
-    }
-        
+
     /// the radius of the particle is then changed based on the
     /// current sinOffset_ value.
     myRadius_ = channel.getValue(myLocation_)*sinOffset_;
@@ -112,21 +98,60 @@ void Particle::draw()
 }
 
 /// This method handles the changing the color of the
-/// Particle when the mouse is pressed down and read in
-/// CatPictureApp::mouseDown
-void Particle::changeColor() {
-    if (!isRed_) { /// changes from red to green
-        isRed_ = !isRed_;
-        isGreen_ = !isGreen_;
+/// Particle when the mouse is scrolled
+void Particle::changeColor(int wheelClicks) {
+
+	change_ += (wheelClicks%256)/256.0;
+
+	double redLevel_ = 1;
+    double greenLevel_ = 1;
+    double blueLevel_ = 1;
+    if (change_ < 1/6.0){
+        greenLevel_ = change_ / (1/6.0);
+        blueLevel_ = 0;
     }
-    else if (!isGreen_) { /// changes from green to blue
-        isGreen_ = !isGreen_;
-        isBlue_ = !isBlue_;
+    else if (change_ < (1/3.0)){
+        redLevel_ = 1 - ((change_ - (1/6.0)) / (1/6.0));
+        blueLevel_ = 0;
     }
-    else if (!isBlue_) { /// changes from blue to red
-        isBlue_ = !isBlue_;
-        isRed_ = !isRed_;
+    else if (change_ < 0.5){
+        redLevel_ = 0;
+        blueLevel_ = (change_ - (1/3.0)) / (1/6.0);
     }
+    else if (change_ < (2/3.0))
+    {
+        redLevel_ = 0;
+        greenLevel_ = 1 - ((change_ - 0.5) / (1/6.0));
+    }
+    else if (change_ < (5/6.0))
+    {
+        redLevel_ = (change_ - (2/3.0)) / (1/6.0);
+        greenLevel_ = 0;
+    }
+    else
+    {
+        blueLevel_ = 1 - ((change_ - (5/6.0)) / (1/6.0));
+        greenLevel_ = 0;
+    }
+
+	//bounds checks
+	if(redLevel_ > 1.0f)
+		redLevel_ = 1.0f;
+	else if(redLevel_ < 0.0f)
+		redLevel_ = 0.0f;
+
+	if(greenLevel_ > 1.0f)
+		greenLevel_ = 1.0f;
+	else if(greenLevel_ < 0.0f)
+		greenLevel_ = 0.0f;
+
+	if(blueLevel_ > 1.0f)
+		blueLevel_ = 1.0f;
+	else if(blueLevel_ < 0.0f)
+		blueLevel_ = 0.0f;
+
+	myColor_ = Color(redLevel_, blueLevel_, greenLevel_);
+
 }
 
 /// This method handles the changing increment for the

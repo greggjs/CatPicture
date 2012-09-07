@@ -34,7 +34,7 @@ ParticleController::ParticleController(int myRes_) {
     /// store the X-Y resolution
     myXRes_ = app::getWindowWidth()/myRes_;
     myYRes_ = app::getWindowHeight()/myRes_;
-    
+
     /// create a particle for each part of the resolution
     for (int y = 0; y<myYRes_; y++) {
         for (int x = 0; x<myXRes_; x++) {
@@ -42,6 +42,7 @@ ParticleController::ParticleController(int myRes_) {
         }
     }
 }
+
 /// points the ParticleController to the Particle version of update
 void ParticleController::update( const Channel32f &channel_, const Vec2i &mouseLoc_)
 {
@@ -59,9 +60,9 @@ void ParticleController::draw()
 }
 
 /// points the ParticleController to the Particle version of changeColor
-void ParticleController::changeColor() {
+void ParticleController::changeColor(int wheelClicks) {
     for( list<Particle>::iterator p_ = my_Particles_.begin(); p_ != my_Particles_.end(); ++p_ ){
-		p_->changeColor();
+		p_->changeColor(wheelClicks);
 	}
 }
 

@@ -35,7 +35,7 @@ public:
 	void update(const ci::Channel32f &channel, const ci::Vec2i &mouseLoc);
 	/// draw function. it really just draws the rectangle
     void draw();
-    void changeColor(); /// changes the color of the Particle
+    void changeColor(int wheelClicks); /// changes the color of the Particle
     void changeDist(float myIncrement_); /// changes the size of the rings
 	
 	ci::Vec2f	myLocation_; /// location of Particle
@@ -44,9 +44,10 @@ public:
 	float       rand_; /// stores a random float for color
 	float		myRadius_; /// stores the radius of particle since they are square
     float       myDistChange_; /// stores the distance change
-    bool        isRed_; /// stores if the current color is red, blue, or green
-    bool        isGreen_;
-    bool        isBlue_;
+    float       redLevel_; /// stores if the current color is red, blue, or green
+    float       greenLevel_;
+    float       blueLevel_;
+	float		change_;
     ci::Color   myColor_; /// stores current color
 };
 
