@@ -65,7 +65,7 @@ class CatPictureApp : public AppBasic {
 };
 
 void CatPictureApp::prepareSettings(Settings *settings) {
-    settings->setWindowSize(520, 520);
+    settings->setWindowSize(600, 800); //Can you make the window better?
     settings->setFrameRate(60.0f);
 }
 
@@ -160,7 +160,8 @@ void CatPictureApp::update()
 /// after proper updates have been performed.
 void CatPictureApp::draw()
 {
-    gl::clear(Color(0.0f, 0.0f, 0.0f));
+	Color8u c = Color8u(0,0,0);
+    gl::clear(Color(c));
     myParticleController_.draw();
 
 	
