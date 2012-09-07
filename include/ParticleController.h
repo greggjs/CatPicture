@@ -32,8 +32,12 @@ public:
     /// the same function call in the Particle class.
 	void update(const ci::Channel32f &channel_, const ci::Vec2i &mouseLoc_);
 	void draw();
-    void changeColor();
+    void changeColor(int wheelClicks);
     void changeDist(float myIncrement_);
+
+	//sends a char representing a certain utility to the particle controller, 
+	//which is to be toggled on or off.
+	void changeUtility(char utility);
     
     /// adds Particles to the ParticleController
 	void addParticles( int xRes_, int yRes_, int myRes_ );
@@ -46,6 +50,7 @@ public:
     
     /// stores the X-Y resolution of what I'm drawing
     int myXRes_, myYRes_;
+
 };
 
 
